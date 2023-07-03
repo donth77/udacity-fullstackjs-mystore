@@ -1,0 +1,131 @@
+<div class="cart-container">
+  <div class="empty-cart-msg" *ngIf="(cartProducts | async)?.length == 0">
+    <h2>Your cart is empty.</h2>
+  </div>
+  <div class="cart-product-list" *ngIf="(cartProducts | async)?.length">
+    <app-cart-product
+      *ngFor="let product of cartProducts | async"
+      [product]="product"
+      (removeProductFromCart)="removeFromCart(product.id)"
+    ></app-cart-product>
+  </div>
+  <div class="checkout-section">
+    <h2>Checkout</h2>
+    <div class="divider"></div>
+    <div class="total">
+      <h3>Total</h3>
+      <h3>${{ totalStr | async }}</h3>
+    </div>
+    <h2>Details</h2>
+    <div class="divider"></div>
+    <form class="form-section" #form="ngForm" (ngSubmit)="submitCheckout()">
+      <div class="form-row">
+        <div class="form-section" style="width: 100%">
+          <label for="name">Name</label>
+          <input
+            class="checkout-field long-field"
+            style="width: 100%"
+            type="text"
+            name="name"
+            placeholder="Name"
+            [(ngModel)]="name"
+            minlength="8"
+            maxlength="32"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-section" style="width: 100%">
+          <label for="creditCard">Card Number</label>
+          <input
+            class="checkout-field long-field"
+            style="width: 100%"
+            type="text"
+            name="creditCard"
+            inputmode="numeric"
+            pattern="[0-9\s]{16}"
+            autocomplete="cc-number"
+            minlength="16"
+            maxlength="16"
+            placeholder="xxxxxxxxxxxxxxxx"
+            [(ngModel)]="creditCard"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-section">
+          <label for="cvc">CVC</label>
+          <input
+            class="checkout-field short-field"
+            style="margin-right: 30px"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9\s]{3}"
+            name="cvc"
+            placeholder="CVC"
+            [(ngModel)]="cvc"
+            minlength="3"
+            maxlength="3"
+            required
+          />
+        </div>
+        <div class="form-section">
+          <label for="expiryMonth">Expiration Date</label>
+          <div class="form-row">
+            <input
+              class="checkout-field short-field"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9\s]{2}"
+              name="expiryMonth"
+              placeholder="MM"
+              [(ngModel)]="expiryMonth"
+              minlength="2"
+              maxlength="2"
+              required
+            />
+            <span>&nbsp;/&nbsp;</span>
+            <input
+              class="checkout-field short-field"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9\s]{2}"
+              name="expiryYear"
+              placeholder="YY"
+              [(ngModel)]="expiryYear"
+              minlength="2"
+              maxlength="2"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-section" style="width: 100%">
+          <label for="name">Address</label>
+          <input
+            class="checkout-field"
+            style="width: 100%"
+            type="text"
+            name="address"
+            placeholder="Address"
+            [(ngModel)]="address"
+            required
+            minlength="8"
+            maxlength="64"
+            required
+          />
+        </div>
+      </div>
+      <input
+        style="margin: 30px 0"
+        type="submit"
+        value="Submit"
+        class="btn btn-primary"
+        [disabled]="form.invalid"
+      />
+    </form>
+  </div>
+</div>

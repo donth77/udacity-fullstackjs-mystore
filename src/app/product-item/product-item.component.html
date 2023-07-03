@@ -1,0 +1,15 @@
+<div class="product-box">
+  <a routerLink="product/{{ product.id }}"
+    ><div class="product-img" [ngStyle]="{ 'background-image': getUrl() }"></div
+  ></a>
+  <div class="product-content">
+    <div class="product-info">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <h4 class="product-price">${{ product.price }}</h4>
+    </div>
+
+    <button class="add-cart-btn" (click)="addToCart()">
+      <bi class="add-cart-icon" name="cart-plus"></bi>
+    </button>
+  </div>
+</div>

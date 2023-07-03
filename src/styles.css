@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Kumbh Sans", sans-serif;
+  color: #1d242d;
+}
+.toast-width {
+  width: 150px;
+}
+.toast-top-center-offset {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-150px);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

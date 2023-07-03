@@ -1,0 +1,25 @@
+<div *ngIf="product" class="product-detail-container">
+  <div
+    class="product-detail-img"
+    [ngStyle]="{ 'background-image': getUrl() }"
+  ></div>
+  <div class="product-detail-content">
+    <h2 class="product-detail-name">{{ product.name }}</h2>
+    <p class="product-desc">{{ product.description }}</p>
+    <h3 class="product-detail-price">${{ product.price }}</h3>
+    <div class="cart-options">
+      <div class="quantity-control">
+        <button class="minus-btn" (click)="subQuantity()">
+          <bi class="minus-icon" name="dash"></bi>
+        </button>
+        <div class="quantity-val">{{ this.quantity }}</div>
+        <button class="add-btn" (click)="addQuantity()">
+          <bi class="plus-icon" name="plus"></bi>
+        </button>
+      </div>
+      <button class="detail-add-cart-btn" (click)="addToCart()">
+        <bi class="detail-cart-icon" name="cart"></bi><span>Add to cart</span>
+      </button>
+    </div>
+  </div>
+</div>

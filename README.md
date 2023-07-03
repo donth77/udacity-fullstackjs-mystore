@@ -1,27 +1,29 @@
-# Mystore
+# MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+Full single-page ecommerce application in Angular
 
-## Development server
+## Installation and Launch
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. `npm install`
+2. `ng serve --port 3000`
+3. Navigate to `http://localhost:3000/` in browser
 
-## Code scaffolding
+## Pages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Product List
 
-## Build
+Default page at root path. Click "Products" in the navbar.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Product List](https://i.imgur.com/j9QOs1B.png)
 
-## Running unit tests
+### Product Detail
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Click a product image to navigate to the detail page.
 
-## Running end-to-end tests
+![Product Detail](https://i.imgur.com/9Hdrry5.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Cart
 
-## Further help
+Click the cart icon at the top right of the navbar.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Cart](https://i.imgur.com/wfu7G0e.png)

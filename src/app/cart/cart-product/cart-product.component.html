@@ -1,0 +1,20 @@
+<div class="cart-product">
+  <img src="{{ product.url }}" />
+  <div class="cart-info">
+    <h3>{{ product.name }}</h3>
+    <form class="quantity-form" (keyup.enter)="submitUpdateQuantity()">
+      <label for="quantity-{{ product.id }}">Quantity:</label>
+      <input
+        type="number"
+        name="quantity-{{ product.id }}"
+        [formControl]="updateQuantity"
+        min="0"
+        max="2147483647"
+      />
+    </form>
+    <button class="remove-btn" (click)="removeFromCart()">
+      <bi class="trash-icon" name="trash"></bi>
+    </button>
+  </div>
+  <div class="cart-product-price">${{ product.totalPriceStr }}</div>
+</div>
