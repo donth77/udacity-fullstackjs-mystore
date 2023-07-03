@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { CartService } from '../services/cart.service';
-import { CartProduct } from '../models/CartProduct';
+import { CartService } from '../../services/cart.service';
+import { CartProduct } from '../../models/CartProduct';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -31,5 +31,9 @@ export class CartComponent {
 
   removeFromCart(id: number): void {
     this.cartService.removeFromCart(id);
+  }
+
+  nameChanged(newName: string) {
+    // listen to name change
   }
 }

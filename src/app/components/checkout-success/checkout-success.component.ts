@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CartService } from '../services/cart.service';
 import confetti from 'canvas-confetti';
 @Component({
   selector: 'app-checkout-success',

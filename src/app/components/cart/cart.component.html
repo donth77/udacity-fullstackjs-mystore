@@ -29,6 +29,7 @@
             name="name"
             placeholder="Name"
             [(ngModel)]="name"
+            (ngModelChange)="nameChanged($event)"
             minlength="8"
             maxlength="32"
             required
