@@ -61,6 +61,7 @@
 
 .form-row {
   display: flex;
+  align-items: center;
 }
 
 .form-section {
@@ -78,6 +79,12 @@
 
 .short-field {
   width: 75px;
+}
+
+.error-text {
+  margin: 0 0 0 20px;
+  color: red;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 900px) {

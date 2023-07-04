@@ -23,9 +23,7 @@ export class CartProductComponent {
 
   submitUpdateQuantity(): void {
     const newQuantity = this.updateQuantity.value;
-    if (newQuantity === 0) {
-      this.removeFromCart();
-    } else if (newQuantity) {
+    if (newQuantity) {
       this.cartService.setQuantity(this.product.id, newQuantity);
     }
   }
