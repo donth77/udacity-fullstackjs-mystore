@@ -14,12 +14,10 @@ export class CartComponent {
   cartTotalNum = 0;
   name: string = '';
   creditCard: string = '';
-  expiryMonth: string = '';
-  expiryYear: string = '';
-  cvc: string = '';
   address: string = '';
   showNameError = false;
   showAddressError = false;
+  showCreditCardError = false;
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
@@ -40,7 +38,6 @@ export class CartComponent {
   }
 
   nameChanged(newName: string) {
-    // listen to name change
     if (newName.length && newName.length < 8) {
       this.showNameError = true;
     } else {
@@ -49,11 +46,21 @@ export class CartComponent {
   }
 
   addressChanged(newAddress: string) {
-    // listen to name change
     if (newAddress.length && newAddress.length < 8) {
       this.showAddressError = true;
     } else {
       this.showAddressError = false;
+    }
+  }
+
+  creditCardChanged(newCreditCard: string) {
+    if (
+      (newCreditCard.length && newCreditCard.length < 16) ||
+      isNaN(Number(newCreditCard))
+    ) {
+      this.showCreditCardError = true;
+    } else {
+      this.showCreditCardError = false;
     }
   }
 }

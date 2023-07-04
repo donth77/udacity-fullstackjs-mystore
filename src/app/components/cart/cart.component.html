@@ -43,7 +43,12 @@
       </div>
       <div class="form-row">
         <div class="form-section" style="width: 100%">
-          <label for="creditCard">Card Number</label>
+          <div class="form-row">
+            <label for="creditCard">Card Number</label>
+            <span *ngIf="showCreditCardError" class="error-text"
+              >Must be a 16 digit number</span
+            >
+          </div>
           <input
             class="checkout-field long-field"
             style="width: 100%"
@@ -56,56 +61,9 @@
             maxlength="16"
             placeholder="xxxxxxxxxxxxxxxx"
             [(ngModel)]="creditCard"
+            (ngModelChange)="creditCardChanged($event)"
             required
           />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-section">
-          <label for="cvc">CVC</label>
-          <input
-            class="checkout-field short-field"
-            style="margin-right: 30px"
-            type="text"
-            inputmode="numeric"
-            pattern="[0-9\s]{3}"
-            name="cvc"
-            placeholder="CVC"
-            [(ngModel)]="cvc"
-            minlength="3"
-            maxlength="3"
-            required
-          />
-        </div>
-        <div class="form-section">
-          <label for="expiryMonth">Expiration Date</label>
-          <div class="form-row">
-            <input
-              class="checkout-field short-field"
-              type="text"
-              inputmode="numeric"
-              pattern="[0-9\s]{2}"
-              name="expiryMonth"
-              placeholder="MM"
-              [(ngModel)]="expiryMonth"
-              minlength="2"
-              maxlength="2"
-              required
-            />
-            <span>&nbsp;/&nbsp;</span>
-            <input
-              class="checkout-field short-field"
-              type="text"
-              inputmode="numeric"
-              pattern="[0-9\s]{2}"
-              name="expiryYear"
-              placeholder="YY"
-              [(ngModel)]="expiryYear"
-              minlength="2"
-              maxlength="2"
-              required
-            />
-          </div>
         </div>
       </div>
       <div class="form-row">
